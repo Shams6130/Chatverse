@@ -1,11 +1,11 @@
-import User from "../models/users.model.js"
+import User from "../models/users.model.js";
 import bcrypt from "bcrypt";
 import createTokenAndSaveCookie from "../token/createTokenAndSaveCookie.js";
 export const signup = async (req, res) => {
   const { fullname, email, password, confirmPassword } = req.body;
   try {
     console.log(password);
-        console.log(confirmPassword);
+    console.log(confirmPassword);
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords do not match" });
@@ -22,9 +22,8 @@ export const signup = async (req, res) => {
       password: hashPassword,
     });
     await newUser.save();
-    
+
     if (newUser) {
-     
       createTokenAndSaveCookie(newUser._id, res);
       res.status(201).json({
         message: "User created successfully",
@@ -61,10 +60,15 @@ export const login = async (req, res) => {
     console.log(error);
     res.status(500).json({ error: "Internal server error" });
   }
+  
 };
 export const logout = async (req, res) => {
   try {
-    res.clearCookie("jwt");
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
     res.status(201).json({ message: "User logged out successfully" });
   } catch (error) {
     console.log(error);
@@ -81,4 +85,5 @@ export const allUsers = async (req, res) => {
     res.status(201).json(filteredUsers);
   } catch (error) {
     console.log("Error in allUsers Controller: " + error);
-  }};
+  }
+};

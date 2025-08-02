@@ -30,7 +30,9 @@ function Signup() {
     console.log(userInfo);
 
      await axios
-      .post("/api/user/signup", userInfo)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/user/signup`,
+    userInfo,
+    { withCredentials: true } )// ✅ cookies allow karne ke liye)
       .then((response) => {
         console.log(response);
         if (response.data) {
