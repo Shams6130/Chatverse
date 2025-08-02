@@ -7,8 +7,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:4000",
+    origin: "https://chatverse-2.vercel.app",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
@@ -17,8 +18,6 @@ const users = {};
 export const getReceiverSocketId = (receiverId) => {
   return users[receiverId];
 };
-
-
 
 // used to listen events on server side.
 io.on("connection", (socket) => {
