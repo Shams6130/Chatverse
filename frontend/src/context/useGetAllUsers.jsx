@@ -11,10 +11,10 @@ function useGetAllUsers() {
         const token = Cookies.get("jwt");
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/allusers`, {
             withCredentials: true,
-          credentials: "include",
-          headers: {
+           credentials: "include",
+           headers: {
             Authorization: `Bearer ${token}`,
-          },
+          }, 
         });
         setAllUsers(response.data);
         setLoading(false);
