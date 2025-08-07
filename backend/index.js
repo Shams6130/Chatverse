@@ -12,8 +12,8 @@ dotenv.config();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: "https://chatverse-2.vercel.app ",
-  credentials: true
+  origin: "https://chatverse-2.vercel.app",
+  credentials: true,
 }));
 const port = process.env.PORT || 3002;
 const URI = process.env.MONGOOSE_URI;
