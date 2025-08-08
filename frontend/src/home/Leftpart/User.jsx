@@ -25,7 +25,7 @@ function User({ user }) {
         </div>
         <div>
           <h1>{user.fullname}</h1>
-          <span className="bg-green-600">{isOnline?"Online":""}</span>
+          <span className="text-green-600">{isOnline?"Online":""}</span>
           
         </div>
       </div>
