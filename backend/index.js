@@ -12,7 +12,7 @@ dotenv.config();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: "https://chatverse-2.vercel.app",
+  origin:"https://chatverse-2.vercel.app",
   credentials: true,
 }));
 const port = process.env.PORT || 3002;
