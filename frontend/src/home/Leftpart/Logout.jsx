@@ -13,7 +13,7 @@ function Logout() {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/logout`
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/logout`,{},
         { withCredentials: true }
       ); // ⬅️ required to clear cookie);
       localStorage.removeItem("ChatApp");
