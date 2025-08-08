@@ -25,7 +25,8 @@ function User({ user }) {
         </div>
         <div>
           <h1>{user.fullname}</h1>
-          <span>{user.email}</span>
+          <span className="bg-green-600">{isOnline?"Online":""}</span>
+          
         </div>
       </div>
     </div>

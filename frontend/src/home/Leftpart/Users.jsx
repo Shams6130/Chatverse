@@ -8,8 +8,8 @@ function Users() {
   
   return (
     <div>
-      <h1 className="px-8 py-2 text-white font-semibold bg-red-600 rounded-md " >
-        <Marquee speed={100}  >Connect With Tabish </Marquee>
+      <h1 className="px-8 py-2 text-white font-semibold bg-green-300 rounded-md " >
+        <Marquee speed={100}  >Connect With friends </Marquee>
       </h1>
       <div className=" overflow-y-auto scrollbar-hide max-h-[calc(84vh-10vh)] min-h-[calc(84vh-10vh)]">
         {/* yaha yeh function likhne se height fix and scrollable hoti hai */}
